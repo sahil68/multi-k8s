@@ -23,10 +23,10 @@ script:
 
 #build prod images for all projects
 after_success:
-  - docker build -t sahil68/multi-client -f ./client
-  - docker build -t sahil68/multi-nginx -f ./nginx
-  - docker build -t sahil68/multi-server -f ./server
-  - docker build -t sahil68/multi-worker -f ./worker
+  - docker build -t sahil68/multi-client ./client
+  - docker build -t sahil68/multi-nginx  ./nginx
+  - docker build -t sahil68/multi-server ./server
+  - docker build -t sahil68/multi-worker ./worker
 
 #log in to docker CLI before we push stuff to docker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
